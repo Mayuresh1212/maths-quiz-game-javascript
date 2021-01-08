@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maths Quiz Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <section>
+        <h1>Math Addition Quiz Game :) </h1>
+        <div class="centerdiv">
+            <div class="insertbox">
+                <div class="box1">
+                    <input type="text" id="v1">
+                </div>
+                <div class="box1">
+                    <p> + </p>
+                </div>
+                <div class="box1">
+                    <input type="text" id="v2">
+                </div>
+            </div>
+
+            <div class="middlebox">
+                <input type="text" id="answer">
+            </div>
+
+            <div class="sentbox">
+                <button onclick="jsGame()"> Check Answer</button>
+            </div>
+        </div>
+
+        <h2 id="h2"></h2>
+    </section>
+
+
+    <script type="text/javascript">
+
+        let n1 = Math.floor(Math.random() * 100 + 1);
+        let n2 = Math.floor(Math.random() * 100 + 1);
+
+        document.getElementById('v1').value = n1;
+        document.getElementById('v2').value = n2;
+
+        let answer = n1 + n2;
+
+        const jsGame = () => {
+            var useranswer = document.getElementById('answer').value;
+
+            if (useranswer == answer) {
+                document.getElementById('h2').innerHTML = "Well Done! Your Answer is Correct.";
+            }
+            else {
+                document.getElementById('h2').innerHTML = "Sorryy!! Correct Answer is : " + answer + ". Try Again. ";
+            }
+
+            document.getElementById('answer').value = "";
+            n1 = Math.floor(Math.random() * 100 + 1);
+            n2 = Math.floor(Math.random() * 100 + 1);
+
+            document.getElementById('v1').value = n1;
+            document.getElementById('v2').value = n2;
+
+            answer = n1 + n2;
+        }
+
+    </script>
+</body>
+
+</html>
